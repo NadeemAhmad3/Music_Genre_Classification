@@ -60,3 +60,80 @@ An **end-to-end machine learning project** that builds, evaluates, and compares 
 ├── app.py                  # Main Streamlit web app script
 ├── style.css               # Custom CSS for styling the app
 └── README.md
+```
+## ⚙️ Installation & Setup
+**1. Clone the Repository** 
+```bash
+git clone https://github.com/NadeemAhmad3/Music_Genre_Classification.git
+cd Music_Genre_Classification
+```
+**2. Create a Virtual Environment (Recommended)**
+```bash
+python -m venv venv
+# On Windows
+venv\Scripts\activate
+# On Unix/Mac
+source venv/bin/activate
+```
+**3. Install Dependencies**
+
+```bash
+pip install pandas numpy librosa scikit-learn xgboost tensorflow matplotlib seaborn streamlit
+```
+**4. Download the Dataset**
+The dataset used is the GTZAN Genre Collection. Download it from Kaggle:
+https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification
+Unzip the file and place the Data folder into an input directory at the root of the project, as shown in the project structure.
+## ▶️ How to Run the Project
+⚠️ **Important:** Due to the large size of the dataset (input/) and the trained models (outputs/models/), these directories are typically not uploaded to GitHub. You must first run the notebook to generate the necessary files before launching the web app.
+**1. Run the Jupyter Notebook** 
+```bash
+jupyter lab
+```
+Then open .ipynb to walk through data analysis and model training.
+Launch Jupyter and run all cells in the notebook from top to bottom.
+This will perform the EDA, train all four models, and save the required model files, preprocessors, and visualization plots into the outputs directory.
+**2. Launch the Streamlit App** 
+```bash
+streamlit run streamlit_app.py
+```
+Your browser will automatically open the app at http://localhost:8501.
+## 🧠 Modeling & Results
+
+Three primary recommendation models were built and evaluated, which are then combined into a hybrid system.
+
+| Model                      | Methodology              | Test Accuracy                      | Key Insight                                                             | 
+| ---------------------------| ------------------------ | ---------------------------------- | ------------------------------------------------------------------------| 
+| **Dense Neural Network**   | Tabular                  | **~91.1%**                         | **Best overall performer**.find complex patterns in engineered features.| 
+| **XGBoost**                | Tabular                  | **~90.5%**                         | Highly accurate and reliable. A top contender.                          | 
+| **(VGG16)**                | Image-Based              | **~58.0%**                         | Drastically better than a custom CNN                                    |
+| **Custom CNN**             | Image-Based              | **~6.3%**                          | Failed to learn,                                                        |
+
+✅ The final **Streamlit application** ntegrates the two top-performing models—**XGBoost** and the **Dense Neural Network**—for the live audio prediction tool, as they provide the most accurate and trustworthy results. The image-based models are also included to demonstrate the full scope of the project.
+
+## 🤝 Contributing
+We welcome contributions!
+
+**1.** Fork the repo
+
+**2.** Create your feature branch
+```bash
+git checkout -b feature/AmazingFeature
+```
+**3.** Commit your changes
+```bash
+git commit -m "Add some AmazingFeature"
+```
+**4.** Push to your branch
+```bash
+git push origin feature/AmazingFeature
+```
+**5.** Open a Pull Request
+
+## 📧 Contact
+**Nadeem Ahmad**
+
+📫 **onedaysuccussfull@gmail.com**
+
+
+
